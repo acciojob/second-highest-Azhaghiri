@@ -10,12 +10,29 @@
 	<script>
 		function secondHighest(arr) {
 			//Write your code here
+			            if (arr.length < 2) return -Infinity;
+
+            let highest = -Infinity;
+            let second = -Infinity;
+
+            for (const num of arr) {
+                if (num > highest) {
+                    second = highest;
+                    highest = num;
+                } else if (num > second && num < highest) {
+                    second = num;
+                }
+            }
+
+            return second === -Infinity ? -Infinity : second;
+
+			
 			
 		}
 
 		function Main() {
 			var n = prompt("Enter the number of elements");
-			var arr = [];
+			var arr = [5,];
 			for (var i = 0; i < n; i++) {
 				arr[i] = prompt("Enter element " + (i+1));
 			}
